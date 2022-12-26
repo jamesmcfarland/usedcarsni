@@ -2,3 +2,5 @@
 /results.csv
 /results.json
 /yarn.lock
+*.lock
+.DS_Store
