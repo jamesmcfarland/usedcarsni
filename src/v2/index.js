@@ -29,7 +29,8 @@ const main = async () => {
     bar.start(pages, 0);
     let barValue = 0;
 
-    const pageIndexes = Array.from({ length: pages + 1 }, (_, index) => index);
+    // const pageIndexes = Array.from({ length: pages }, (_, index) => index);
+    const pageIndexes = [0, 1]
 
     carURLS = await Bluebird.map(pageIndexes, async (pageIndex, i) => {
 
@@ -47,6 +48,7 @@ const main = async () => {
     }, { concurrency: CONCURRENCY });
     carURLS = [... new Set(carURLS.flat())];
 
+ 
 
     bar.update(pages);
     bar.stop();
@@ -76,7 +78,7 @@ const main = async () => {
         }
         catch (err) {
             barValue = carURLS.length - i; bar.update(barValue)
-
+            throw err;
             return undefined;
         }
 
