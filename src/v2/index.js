@@ -29,8 +29,7 @@ const main = async () => {
     bar.start(pages, 0);
     let barValue = 0;
 
-    // const pageIndexes = Array.from({ length: pages }, (_, index) => index);
-    const pageIndexes = [0, 1]
+    const pageIndexes = Array.from({ length: pages }, (_, index) => index);
 
     carURLS = await Bluebird.map(pageIndexes, async (pageIndex, i) => {
 
