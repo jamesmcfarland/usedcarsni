@@ -77,7 +77,6 @@ const main = async () => {
         }
         catch (err) {
             barValue = carURLS.length - i; bar.update(barValue)
-            throw err;
             return undefined;
         }
 
